@@ -12,12 +12,21 @@ declare -A LISTEN
 LISTEN["1"]="https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/pkglist.txt"
 LISTEN["2"]="https://raw.githubusercontent.com/USERNAME/REPO/main/server.txt"
 
+# Standardwert auf 1 setzen
+DEFAULT="1"
+
 echo "Welche Paketliste? (1: Standard, 2: Server)"
 read -p "Auswahl: " AUSWAHL
 
-PKGLIST_URL="${LISTEN[$AUSWAHL]}"
-[[ -z "$PKGLIST_URL" ]] && { echo "Ungültige Auswahl"; exit 1; }
+# Wenn Enter gedrückt wird, Standard nehmen
+AUSWAHL=${AUSWAHL:-$DEFAULT}
 
+# Prüfen, ob gültige Auswahl
+PKGLIST_URL="${LISTEN[$AUSWAHL]}"
+if [[ -z "$PKGLIST_URL" ]]; then
+    echo "❌ Ungültige Auswahl"
+    exit 1
+fi
 # Temporäre Datei
 TMPFILE=$(mktemp)
 trap 'rm -f "$TMPFILE"' EXIT
