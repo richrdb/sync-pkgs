@@ -1,0 +1,6 @@
+firefox
+vlc
+visual-studio-code-bin
+htop
+zsh
+pipewire
