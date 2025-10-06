@@ -1,16 +1,16 @@
 #!/bin/bash
 set -e
 
-# 🔗 Dein GitHub-Link
 PKGLIST_URL="https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/pkglist.txt"
 
-# 📁 Temporäre Datei
+# Temporäre Datei
 TMPFILE=$(mktemp)
+trap 'rm -f "$TMPFILE"' EXIT
 
 echo "📦 Lade Paketliste..."
 curl -fsSL "$PKGLIST_URL" -o "$TMPFILE"
 
-echo "📦 Installiere/aktualisiere Pakete..."
+echo "📦 Installiere Pakete..."
 yay -S --needed --noconfirm - < "$TMPFILE"
 
-echo "✅ Pakete synchronisiert."
+echo -e "\e[32m✅ Pakete synchronisiert.\e[0m"
