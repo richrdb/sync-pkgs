@@ -13,8 +13,21 @@ LISTEN["1"]="https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/
 LISTEN["2"]="https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/optical.txt"
 LISTEN["3"]="https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/gaming.txt"
 
-echo "Welche Paketliste? (1: default, 2: optical, 3:gaming)"
+# Standardwert auf 1
+DEFAULT=("1")
+
+# Menü anzeigen
+echo "Welche Paketlisten möchten Sie synchronisieren? [Enter = 1]"
+echo "1) Desktop"
+echo "2) Server"
+echo "3) Gaming"
+
 read -p "Auswahl: " AUSWAHL
+
+# Wenn Enter gedrückt wird, Standard setzen
+if [[ -z "$AUSWAHL" ]]; then
+    AUSWAHL="${DEFAULT[*]}"
+fi
 
 # Temporäre Datei
 TMPFILE=$(mktemp)
