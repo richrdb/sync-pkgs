@@ -2,7 +2,7 @@
 set -e
 
 # 🔗 Dein GitHub-Link
-PKGLIST_URL="https://raw.githubusercontent.com/richrdb/pkglist/refs/heads/main/pkglist.txt"
+PKGLIST_URL="https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/pkglist.txt"
 
 # 📁 Temporäre Datei
 TMPFILE=$(mktemp)
