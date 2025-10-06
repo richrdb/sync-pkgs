@@ -9,24 +9,13 @@ fi
 
 # Verschiedene Paketlisten
 declare -A LISTEN
-LISTEN["1"]="https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/pkglist.txt"
-LISTEN["2"]="https://raw.githubusercontent.com/USERNAME/REPO/main/server.txt"
+LISTEN["1"]="https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/default.txt"
+LISTEN["2"]="https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/optical.txt"
+LISTEN["3"]="https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/gaming.txt"
 
-# Standardwert auf 1 setzen
-DEFAULT="1"
-
-echo "Welche Paketliste? (1: Standard, 2: Server)"
+echo "Welche Paketliste? (1: default, 2: optical, 3:gaming)"
 read -p "Auswahl: " AUSWAHL
 
-# Wenn Enter gedrückt wird, Standard nehmen
-AUSWAHL=${AUSWAHL:$DEFAULT}
-
-# Prüfen, ob gültige Auswahl
-PKGLIST_URL="${LISTEN[$AUSWAHL]}"
-if [[ -z "$PKGLIST_URL" ]]; then
-    echo "❌ Ungültige Auswahl"
-    exit 1
-fi
 # Temporäre Datei
 TMPFILE=$(mktemp)
 trap 'rm -f "$TMPFILE"' EXIT
@@ -40,5 +29,5 @@ fi
 
 # Installation
 echo "📦 Installiere Pakete..."
-yay -S --needed --noconfirm - < "$TMPFILE"
+yay -S --needed - < "$TMPFILE"
 echo -e "\e[32m✅ Pakete synchronisiert.\e[0m"
