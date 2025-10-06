@@ -1,3 +1,5 @@
 libdvdread
 libdvdcss
 libdvdnav
+vlc
+vlc-plugins-all
