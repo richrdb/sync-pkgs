@@ -1,12 +1,6 @@
 #!/bin/bash
 set -e
 
-# Prüfen, ob yay installiert ist
-if ! command -v yay &> /dev/null; then
-    echo "❌ Fehler: yay ist nicht installiert."
-    exit 1
-fi
-
 # Paketlisten
 LISTEN=(
     "https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/default.txt"
@@ -22,10 +16,8 @@ echo "2) optical"
 echo "3) gaming"
 read -p "Auswahl [Enter = 1]: " AUSWAHL
 
-# Enter = Standard
 AUSWAHL=${AUSWAHL:-$DEFAULT}
 
-# Prüfen, ob gültig
 if ! [[ "$AUSWAHL" =~ ^[1-3]$ ]]; then
     echo "❌ Ungültige Auswahl"
     exit 1
