@@ -17,9 +17,9 @@ DEFAULT=1
 
 # Menü
 echo "Welche Paketlisten möchten Sie synchronisieren?"
-echo "1) Desktop"
-echo "2) Server"
-echo "3) Gaming"
+echo "1) default"
+echo "2) optical"
+echo "3) gaming"
 read -p "Auswahl [Enter = 1]: " AUSWAHL
 
 # Enter = Standard
