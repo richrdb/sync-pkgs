@@ -19,7 +19,7 @@ echo "Welche Paketliste? (1: Standard, 2: Server)"
 read -p "Auswahl: " AUSWAHL
 
 # Wenn Enter gedrückt wird, Standard nehmen
-AUSWAHL=${AUSWAHL:-$DEFAULT}
+AUSWAHL=${AUSWAHL:$DEFAULT}
 
 # Prüfen, ob gültige Auswahl
 PKGLIST_URL="${LISTEN[$AUSWAHL]}"
