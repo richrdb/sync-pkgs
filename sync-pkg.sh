@@ -7,27 +7,31 @@ if ! command -v yay &> /dev/null; then
     exit 1
 fi
 
-# Verschiedene Paketlisten
-declare -A LISTEN
-LISTEN["1"]="https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/default.txt"
-LISTEN["2"]="https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/optical.txt"
-LISTEN["3"]="https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/gaming.txt"
+# Paketlisten
+LISTEN=(
+    "https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/default.txt"
+    "https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/optical.txt"
+    "https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/gaming.txt"
+)
+DEFAULT=1
 
-# Standardwert auf 1
-DEFAULT=("1")
-
-# Menü anzeigen
-echo "Welche Paketlisten möchten Sie synchronisieren? [Enter = 1]"
+# Menü
+echo "Welche Paketlisten möchten Sie synchronisieren?"
 echo "1) Desktop"
 echo "2) Server"
 echo "3) Gaming"
+read -p "Auswahl [Enter = 1]: " AUSWAHL
 
-read -p "Auswahl: " AUSWAHL
+# Enter = Standard
+AUSWAHL=${AUSWAHL:-$DEFAULT}
 
-# Wenn Enter gedrückt wird, Standard setzen
-if [[ -z "$AUSWAHL" ]]; then
-    AUSWAHL="${DEFAULT[*]}"
+# Prüfen, ob gültig
+if ! [[ "$AUSWAHL" =~ ^[1-3]$ ]]; then
+    echo "❌ Ungültige Auswahl"
+    exit 1
 fi
+
+PKGLIST_URL="${LISTEN[$((AUSWAHL-1))]}"
 
 # Temporäre Datei
 TMPFILE=$(mktemp)
@@ -35,12 +39,10 @@ trap 'rm -f "$TMPFILE"' EXIT
 
 # Download
 echo "📦 Lade Paketliste..."
-if ! curl -fsSL "$PKGLIST_URL" -o "$TMPFILE"; then
-    echo "❌ Fehler: Paketliste konnte nicht geladen werden."
-    exit 1
-fi
+curl -fsSL "$PKGLIST_URL" -o "$TMPFILE"
 
 # Installation
 echo "📦 Installiere Pakete..."
-yay -S --needed - < "$TMPFILE"
+yay -S --needed --noconfirm - < "$TMPFILE"
+
 echo -e "\e[32m✅ Pakete synchronisiert.\e[0m"
