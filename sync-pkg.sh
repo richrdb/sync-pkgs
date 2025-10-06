@@ -10,7 +10,7 @@ trap 'rm -f "$TMPFILE"' EXIT
 echo "📦 Lade Paketliste..."
 curl -fsSL "$PKGLIST_URL" -o "$TMPFILE"
 
+# Installation
 echo "📦 Installiere Pakete..."
 yay -S --needed --noconfirm - < "$TMPFILE"
-
 echo -e "\e[32m✅ Pakete synchronisiert.\e[0m"
