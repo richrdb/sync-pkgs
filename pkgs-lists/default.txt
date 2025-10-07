@@ -1,9 +1,8 @@
-fastfetch
-firefox
-code
 anki-bin
 calibre
+code
 discord
+fastfetch
 firefox
 firefox-i18n-de
 gimp
