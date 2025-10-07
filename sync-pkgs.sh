@@ -35,6 +35,6 @@ curl -fsSL "$PKGLIST_URL" -o "$TMPFILE"
 
 # Installation
 echo "📦 Installiere Pakete..."
-yay -S --needed --noconfirm - < "$TMPFILE"
+yay -S --needed - < "$TMPFILE"
 
 echo -e "\e[32m✅ Pakete synchronisiert.\e[0m"
