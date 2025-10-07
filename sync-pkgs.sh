@@ -3,9 +3,9 @@ set -e
 
 # Paketlisten
 LISTEN=(
-    "https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/default.txt"
-    "https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/optical.txt"
-    "https://raw.githubusercontent.com/richrdb/sync-pkg/refs/heads/main/gaming.txt"
+    "https://raw.githubusercontent.com/richrdb/sync-pkgs/refs/heads/main/pkgs-lists/default.txt"
+    "https://raw.githubusercontent.com/richrdb/sync-pkgs/refs/heads/main/pkgs-lists/optical.txt"
+    "https://raw.githubusercontent.com/richrdb/sync-pkgs/refs/heads/main/pkgs-lists/gaming.txt"
 )
 DEFAULT=1
 
