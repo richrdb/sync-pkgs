@@ -1,5 +1,5 @@
+fastfetch
 firefox
-vlc
 code
 anki-bin
 calibre
@@ -19,5 +19,5 @@ syncthing
 tealdeer
 telegram-desktop
 vlc
-vlc-plugins-all
+vlc-plugin-ffmpeg
 yt-dlp
