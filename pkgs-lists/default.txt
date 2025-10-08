@@ -1,5 +1,6 @@
 anki-bin
 calibre
+chromium
 code
 discord
 fastfetch
