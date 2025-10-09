@@ -1,0 +1,3 @@
+tailscale
+mullvad-vpn-bin
+qbittorrent
