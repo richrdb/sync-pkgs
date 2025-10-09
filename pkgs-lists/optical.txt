@@ -3,3 +3,4 @@ libdvdcss
 libdvdnav
 vlc
 vlc-plugins-all
+makemkv
