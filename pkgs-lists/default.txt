@@ -10,9 +10,7 @@ gimp
 libreoffice-fresh
 libreoffice-fresh-de
 makemkv
-mullvad-vpn-bin
 obsidian
-qbittorrent
 safeeyes
 signal-desktop
 syncthing
