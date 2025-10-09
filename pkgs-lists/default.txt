@@ -9,7 +9,6 @@ firefox-i18n-de
 gimp
 libreoffice-fresh
 libreoffice-fresh-de
-makemkv
 obsidian
 safeeyes
 signal-desktop
