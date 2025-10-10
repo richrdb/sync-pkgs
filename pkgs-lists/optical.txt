@@ -4,3 +4,5 @@ libdvdnav
 vlc
 vlc-plugins-all
 makemkv
+cups
+system-config-printer
