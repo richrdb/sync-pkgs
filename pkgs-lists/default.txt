@@ -7,6 +7,7 @@ fastfetch
 firefox
 firefox-i18n-de
 gimp
+gparted
 libreoffice-fresh
 libreoffice-fresh-de
 obsidian
