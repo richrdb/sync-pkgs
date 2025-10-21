@@ -1,1 +1,3 @@
 kde-utilities-meta
+gwenview
+kimageformats
