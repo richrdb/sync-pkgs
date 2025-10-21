@@ -13,6 +13,7 @@ libreoffice-fresh-de
 obsidian
 safeeyes
 signal-desktop
+spotify
 syncthing
 tealdeer
 telegram-desktop
