@@ -10,6 +10,7 @@ gimp
 gparted
 libreoffice-fresh
 libreoffice-fresh-de
+man
 obsidian
 safeeyes
 signal-desktop
