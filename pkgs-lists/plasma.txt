@@ -1,0 +1,2 @@
+kde-utilities-meta
+plasma-browser-integration
