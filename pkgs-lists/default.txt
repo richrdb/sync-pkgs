@@ -6,6 +6,7 @@ discord
 fastfetch
 firefox
 firefox-i18n-de
+speech-dispatcher
 gimp
 gparted
 libreoffice-fresh
